@@ -9,10 +9,9 @@ class ufw(
   $limit   = {},
   $logging = {},
   $reject  = {},
-  $forward = 'DROP',
+  Enum['ACCEPT','DROP','REJECT'] $forward = 'DROP',
 ) {
 
-  validate_re($forward, 'ACCEPT|DROP|REJECT')
 
   Exec {
     path     => '/sbin:/usr/sbin:/bin:/usr/bin',
